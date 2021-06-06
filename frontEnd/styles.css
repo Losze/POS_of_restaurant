@@ -171,6 +171,9 @@ li {
 }
 
 /* SLIDER */
+.slider img{
+  border-radius: 1.5rem;
+}
 
 .CSSgal .slider {
   height: 100%;
@@ -301,7 +304,7 @@ li {
 
 @media only screen and (max-width: 650px) {
   .slider_container{
-    width: 92%;
+    width: 90%;
   }
   .CSSgal .slider h2 {
     margin-top: 20vh;
@@ -417,17 +420,145 @@ li {
 }
 
 .section {
-  padding: 0 0 5rem 0;
+  padding: 0rem 0 3.5rem 0;
 }
 
+.advert-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 3rem;
+}
+
+.advert-box {
+  position: relative;
+  color: #fff;
+  height: 22rem;
+  border-radius: 1rem;
+  padding: 1.6rem;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+
+.advert-box img {
+  position: absolute;
+  bottom: 0%;
+  left: -20%;
+  height: 95%;
+  width: 58rem;
+  z-index: -1;
+}
+
+.advert-box:nth-child(1) {
+  background-color: #f5c5d1;
+}
+
+.advert-box:nth-child(2) {
+  background-color: #a1d1df;
+}
+
+.advert-box:nth-child(3) {
+  background-color: #a3a3a3;
+}
+
+.advert-box .dotted {
+  position: relative;
+  height: 100%;
+  border: 2px dashed #f1f1f1;
+  border-radius: 1rem;
+}
+
+.advert-box .content {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(0, -50%);
+}
+
+.advert-box .content h2,
+.advert-box .content h4 {
+  text-shadow: 5px 3px 0px rgba(37, 59, 112, 0.1);
+}
+
+.advert-box .content h2 {
+  line-height: 1.2;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.advert-box .content h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 1024px) {
+  .advert-box {
+    height: 17rem;
+    padding: 0.8rem;
+  }
+  .advert-center {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 2rem;
+  }
+  .advert-box .content {
+    position: absolute;
+    top: 80%;
+    right: 5%;
+    transform: translate(0, -50%);
+  }
+  .advert-box .content h2 {
+    line-height: 1.3rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .advert-box .content h4 {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .advert-box {
+    height: 7em;
+    padding: 0.8rem;
+  }
+  .advert-center {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 2rem;
+  }
+  .advert-box .content {
+    position: absolute;
+    top: 80%;
+    right: 5%;
+    transform: translate(0, -50%);
+  }
+  .advert-box .content h2 {
+    line-height: 1.3rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .advert-box .content h4 {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+}
+
+
 .title {
-  margin: 2rem 0 4rem 0;
+  margin: 0rem 0 3rem 0;
   text-align: center;
 }
 
 .title h1 {
   color: white;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  padding-bottom: 1rem;
   display: inline-block;
   position: relative;
 }
@@ -502,6 +633,9 @@ li {
     grid-template-columns: repeat(auto-fit, minmax(16rem, 0.5fr));
     gap: 2.8rem 3rem;
   }
+  .product {
+    height: 12rem;
+  }
 }
 /*
 @media only screen and (max-width: 410px) {
@@ -522,6 +656,10 @@ li {
   .product-center {
     grid-template-columns: 46% 46%;
     gap: 2rem 2.3rem;
+    
+  }
+  .product {
+    height: 12rem;
   }
 }
 
@@ -555,14 +693,13 @@ li {
 .product-banner .right {
   align-self: center;
   text-align: center;
-  padding: 1.6rem;
+  padding-top: 1.6rem;
 }
 
 .product-banner .content h2 {
   color: #fbb419;
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
 }
 
 .product-banner .content .discount {
@@ -605,7 +742,17 @@ li {
   }
 }
 
-/* Testimonials */
+.btn {
+  display: inline-block;
+  background-color: #c5274f;
+  padding: 1.2rem 4rem;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 3rem;
+}
+
+/* Testimonials
 .testimonial-center {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -663,7 +810,7 @@ li {
   margin-top: 1rem;
 }
 
-/* Brands */
+ 
 .brands-center {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -685,6 +832,7 @@ li {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+*/
 
 /* ========= Footer ======== */
 .footer {
