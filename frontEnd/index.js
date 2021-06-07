@@ -1,3 +1,6 @@
+var path = window.location.pathname;
+var page = path.split("/").pop();
+
 // back tot top
 
 let backToTopBtn = document.querySelector('.back-to-top')
@@ -24,20 +27,23 @@ Array.from(menuItems).forEach((item, index) => {
 
 // food category
 
-let foodMenuList = document.querySelector('.food-item-wrap')
 
-let foodCategory = document.querySelector('.food-category')
+if(page === "menu.html"){
+    let foodMenuList = document.querySelector('.food-item-wrap')
 
-let categories = foodCategory.querySelectorAll('button')
+    let foodCategory = document.querySelector('.food-category')
 
-Array.from(categories).forEach((item, index) => {
-    item.onclick = (e) => {
-        let currCat = foodCategory.querySelector('button.active')
-        currCat.classList.remove('active')
-        e.target.classList.add('active')
-        foodMenuList.classList ='food-item-wrap '+ e.target.getAttribute('data-food-type')
-    }
-})
+    let categories = foodCategory.querySelectorAll('button')
+
+    Array.from(categories).forEach((item, index) => {
+        item.onclick = (e) => {
+            let currCat = foodCategory.querySelector('button.active')
+            currCat.classList.remove('active')
+            e.target.classList.add('active')
+            foodMenuList.classList ='food-item-wrap '+ e.target.getAttribute('data-food-type')
+        }
+    })
+}
 
 // on scroll animation
 
@@ -77,21 +83,20 @@ let bottomNavItems = document.querySelectorAll('.mb-nav-item')
 
 let bottomMove = document.querySelector('.mb-move-item')
 
-var path = window.location.pathname;
-var page = path.split("/").pop();
 if(page === "index.html"){
-    bottomMove.style.left = 0 * 20 + '%'
+    bottomMove.style.left = 0 + '%';
 }
 else if(page === "about.html"){
-    bottomMove.style.left = 1 * 20 + '%'
+    bottomMove.style.left = 25 + '%';
 }
 else if(page === "menu.html"){
-    bottomMove.style.left = 2 * 20 + '%'
+    bottomMove.style.left = 50 + '%';
 }
-else if(page === "contact.html"){
-    bottomMove.style.left = 3 * 20 + '%'
+else {
+    bottomMove.style.left = 75 + '%';
 }
 
+/*
 bottomNavItems.forEach((item, index) => {
     item.onclick = (e) => {
         console.log('object')
@@ -101,3 +106,6 @@ bottomNavItems.forEach((item, index) => {
         bottomMove.style.left = index * 20 + '%'
     }
 })
+*/
+
+//account last child
