@@ -3,8 +3,8 @@ const router = express.Router()
 
 const siteController = require('../app/controllers/SiteCotroller')
 
-router.use('/:slug', siteController.show)
+// router.use('/:slug', siteController.show)
 
 router.use('/', siteController.index)
 
-module.exports = router
+module.exports = router;

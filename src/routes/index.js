@@ -1,11 +1,9 @@
-const orderRouter = require('./order')
-const siteRouter = require('./site')
+const siteRouter = require('./site');
+const accountRouter = require('./account');
 
 function route(app){
-    app.get('/order', orderRouter)
-
-    app.get('/', siteRouter)
-      
+    app.get('/', siteRouter);
+    app.get('/account',accountRouter);
 }
 
 module.exports = route

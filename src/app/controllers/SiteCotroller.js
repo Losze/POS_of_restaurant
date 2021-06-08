@@ -1,16 +1,13 @@
-const Food = require('../models/Food')
+const Food = require('../models/Food');
 
 class SiteController {
+
     index(req, res){
-        res.render('home')
-        // Food.find({}, function(err, foods) {
-        //     if (!err) res.json(foods)
-        //     else res.status(400).json({error: 'Error!!!'})
-        // })
+        res.render('home');
     }
-    show(req, res){
-        res.send('home')
+    show(){
+        res.render("home");
     }
 }
 
-module.exports = new SiteController
+module.exports = new SiteController;
