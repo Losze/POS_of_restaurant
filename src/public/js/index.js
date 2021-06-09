@@ -109,3 +109,20 @@ bottomNavItems.forEach((item, index) => {
 */
 
 //Modal Box
+function incrementValue(id)
+{
+    var value = parseInt(document.getElementById(String(id)).value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById(String(id)).value = value;
+}
+
+function decrementValue(id)
+{
+    var value = parseInt(document.getElementById(String(id)).value, 10);
+    value = isNaN(value) ? 0 : value;
+    if(value>0){
+        value--;
+        document.getElementById(String(id)).value = value;
+    }
+}
