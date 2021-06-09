@@ -1,0 +1,26 @@
+<div class ="mt-4">
+    <div class="row">
+        
+        <a href="/order/create" class="btn btn-primary">Thêm món mới</a>
+        
+
+        {{#each food}}
+
+        <div class="card" style="width: 18rem;">
+        {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+        <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <p class="card-text">{{this.price}}</p>
+            <a href="/order/{{this._id}}/update" class="btn btn-primary">chỉnh sửa món</a> <br>
+            <form method="POST" action="/order/{{this._id}}/delete?_method=DELETE">
+                <input type="submit" value="Xóa món">
+            </form>
+        </div>
+        </div>
+
+        {{/each}}
+
+    </div>
+</div>
+
