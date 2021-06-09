@@ -6,6 +6,11 @@ const port = 3000
 const path = require('path')
 const route = require('.\\routes')
 const db = require('.\\config\\db')
+const session = require('express-session')
+const bodyParser = require('body-parser')
+const passport = require('passport')
+const cookieParser = require('cookie-parser')
+const flash = require('connect-flash')
 app.use(morgan('combined'))
 
 db.connect() // jquery, ajax post form handler
@@ -15,7 +20,23 @@ app.use(express.urlencoded(
   }
 )) 
 
+app.use(flash())
 app.use(express.json()) // js post form handler
+app.use(cookieParser())
+app.use(bodyParser())
+
+// use sesssion
+
+app.use(session({
+  secret:'secret',
+  resave: true,
+  saveUninitialized: true
+}))
+
+// use passport
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(express.static(path.join(__dirname,'public')))
 // Template engine

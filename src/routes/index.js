@@ -1,10 +1,12 @@
 const orderRouter = require('./order')
 const siteRouter = require('./site')
+const loginRouter = require('./login')
 
 function route(app){
-    app.get('/order', orderRouter)
-
-    app.get('/', siteRouter)
+    app.use('/order', orderRouter)
+    app.use('/login', loginRouter)    
+    app.get('/:slug', siteRouter)
+    app.use('/', siteRouter)
       
 }
 

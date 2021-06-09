@@ -1,61 +1,111 @@
-const menu = document.querySelector(".menu");
-const navOpen = document.querySelector(".hamburger");
-const navClose = document.querySelector(".close");
+var path = window.location.pathname;
+var page = path.split("/").pop();
 
-const navLeft = menu.getBoundingClientRect().left;
-navOpen.addEventListener("click", () => {
-  if (navLeft < 0) {
-    menu.classList.add("show");
-    document.body.classList.add("show");
-    navBar.classList.add("show");
-  }
-});
+// back tot top
 
-navClose.addEventListener("click", () => {
-  if (navLeft < 0) {
-    menu.classList.remove("show");
-    document.body.classList.remove("show");
-    navBar.classList.remove("show");
-  }
-});
+let backToTopBtn = document.querySelector('.back-to-top')
 
-const navBar = document.querySelector(".nav");
-const navHeight = navBar.getBoundingClientRect().height;
-window.addEventListener("scroll", () => {
-  const scrollHeight = window.pageYOffset;
-  if (scrollHeight > navHeight) {
-    navBar.classList.add("fix-nav");
-  } else {
-    navBar.classList.remove("fix-nav");
-  }
-});
+window.onscroll = () => {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopBtn.style.display = 'flex'
+    } else {
+        backToTopBtn.style.display = 'none'
+    }
+}
 
-// Scroll To
-const links = [...document.querySelectorAll(".scroll-link")];
-links.map(link => {
-  if (!link) return;
-  link.addEventListener("click", e => {
-    e.preventDefault();
+// top nav menu
 
-    const id = e.target.getAttribute("href").slice(1);
+let menuItems = document.getElementsByClassName('menu-item')
 
-    const element = document.getElementById(id);
-    const fixNav = navBar.classList.contains("fix-nav");
-    let position = element.offsetTop - navHeight;
+Array.from(menuItems).forEach((item, index) => {
+    item.onclick = (e) => {
+        let currMenu = document.querySelector('.menu-item.active')
+        currMenu.classList.remove('active')
+        item.classList.add('active')
+    }
+})
 
-    window.scrollTo({
-      top: position,
-      left: 0,
-    });
+// food category
 
-    navBar.classList.remove("show");
-    menu.classList.remove("show");
-    document.body.classList.remove("show");
-  });
-});
 
-gsap.from(".logo", { opacity: 0, duration: 1, delay: 0.5, y: -10 });
-gsap.from(".hamburger", { opacity: 0, duration: 1, delay: 1, x: 20 });
-gsap.from(".CSSgal", { opacity: 0, duration: 1, delay: 1, x: 20 });
-gsap.from(".slider_container", { opacity: 0, duration: 1, delay: 1, x: 20 });
+if(page === "menu"){
+    let foodMenuList = document.querySelector('.food-item-wrap')
 
+    let foodCategory = document.querySelector('.food-category')
+
+    let categories = foodCategory.querySelectorAll('button')
+
+    Array.from(categories).forEach((item, index) => {
+        item.onclick = (e) => {
+            let currCat = foodCategory.querySelector('button.active')
+            currCat.classList.remove('active')
+            e.target.classList.add('active')
+            foodMenuList.classList ='food-item-wrap '+ e.target.getAttribute('data-food-type')
+        }
+    })
+}
+
+// on scroll animation
+
+let scroll = window.requestAnimationFrame || function(callback) {window.setTimeout(callback, 1000/60)}
+
+let elToShow = document.querySelectorAll('.play-on-scroll')
+
+isElInViewPort = (el) => {
+    let rect = el.getBoundingClientRect()
+
+    return (
+        (rect.top <= 0 && rect.bottom >= 0)
+        ||
+        (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) && rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+        ||
+        (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+    )
+}
+
+loop = () => {
+    elToShow.forEach((item, index) => {
+        if (isElInViewPort(item)) {
+            item.classList.add('start')
+        } else {
+            item.classList.remove('start')
+        }
+    })
+
+    scroll(loop)
+}
+
+loop()
+
+// mobile nav
+
+let bottomNavItems = document.querySelectorAll('.mb-nav-item')
+
+let bottomMove = document.querySelector('.mb-move-item')
+
+if(page === "index"){
+    bottomMove.style.left = 0 + '%';
+}
+else if(page === "about"){
+    bottomMove.style.left = 25 + '%';
+}
+else if(page === "menu"){
+    bottomMove.style.left = 50 + '%';
+}
+else {
+    bottomMove.style.left = 75 + '%';
+}
+
+/*
+bottomNavItems.forEach((item, index) => {
+    item.onclick = (e) => {
+        console.log('object')
+        let crrItem = document.querySelector('.mb-nav-item.active')
+        crrItem.classList.remove('active')
+        item.classList.add('active')
+        bottomMove.style.left = index * 20 + '%'
+    }
+})
+*/
+
+//Modal Box
