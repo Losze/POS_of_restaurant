@@ -122,7 +122,7 @@
                 <div id="modalDiv">
                     <div id="popup1" class="overlay">
                         <div class="popup">
-                            <a class="close" href="#food1">&times;</a>
+                            <a class="close" href="#modal-stop">&times;</a>
                             <div class="modal-img" id="food1">
                                 <div class="modal-img-holder bg-img"
                                     style="background-image: url(assets/food1.jpg);"></div>
@@ -139,9 +139,42 @@
                                 </div>
                             </div>
                             <div class="modal-checkout">
-                                <span class="input-number-decrement"><i class='bx bxs-left-arrow'></i></span>
-                                <input class="input-number" type="text" value="1" min="0" max="10">
-                                <span class="input-number-increment"><i class='bx bxs-right-arrow'></i></span>
+                                <form>
+                                    <input class="input-number-decrement" type="button" onclick="decrementValue('food1box')" value="-"/>
+                                    <input class="input-number" type="text" value="1" id="food1box">
+                                    <input class="input-number-increment" type="button" onclick="incrementValue('food1box')" value='+'/>
+                                </form>
+                                <span class="modal-price"><h3>120.000 VNĐ</h3></span>
+                                <button class="addtocart-button">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="popup2" class="overlay">
+                        <div class="popup">
+                            <a class="close" href="#modal-stop">&times;</a>
+                            <div class="modal-img" id="salad1">
+                                <div class="modal-img-holder bg-img"
+                                    style="background-image: url(assets/salad1.jpg);"></div>
+                            </div>
+                            <div class="modal-item-info">
+                                <div id="modal-info">
+                                    <h3>
+                                        Lorem ipsum
+                                    </h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consec tetur, elit. Optio natus placeat et eos,
+                                        digni ssimos voluptatem tempora necessi tatibus doloribus!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="modal-checkout">
+                                <form>
+                                    <input class="input-number-decrement" type="button" onclick="decrementValue('salad1box')" value="-"/>
+                                    <input class="input-number" type="text" value="1" id="salad1box">
+                                    <input class="input-number-increment" type="button" onclick="incrementValue('salad1box')" value='+'/>
+                                </form>
                                 <span class="modal-price"><h3>120.000 VNĐ</h3></span>
                                 <button class="addtocart-button">
                                     Add to Cart
@@ -160,7 +193,7 @@
                         <i class='bx bx-search-alt-2' ></i>
                     </button>
                 </div>
-                <div class="food-category" style="padding-top: 2rem;">
+                <div class="food-category" style="padding-top: 2rem;" id"modal-stop">
                     <div class="zoom play-on-scroll">
                         <button class="active" data-food-type="all">
                             All food
@@ -215,23 +248,25 @@
 
                     <div class="food-item lorem-type">
                         <div class="item-wrap bottom-up play-on-scroll">
-                            <div class="item-img">
-                                <div class="img-holder bg-img"
-                                    style="background-image: url('assets/salad1.jpg');"></div>
-                            </div>
-                            <div class="item-info">
-                                <div>
-                                    <h3>
-                                        Lorem ipsum
-                                    </h3>
-                                    <span>
-                                        120$
-                                    </span>
+                            <a href="#popup2">
+                                <div class="item-img">
+                                    <div class="img-holder bg-img"
+                                        style="background-image: url('assets/salad1.jpg');"></div>
                                 </div>
-                                <div class="cart-btn">
-                                    <i class='bx bx-cart-alt'></i>
+                                <div class="item-info">
+                                    <div>
+                                        <h3>
+                                            Lorem ipsum
+                                        </h3>
+                                        <span>
+                                            120$
+                                        </span>
+                                    </div>
+                                    <div class="cart-btn">
+                                        <i class='bx bx-cart-alt'></i>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 

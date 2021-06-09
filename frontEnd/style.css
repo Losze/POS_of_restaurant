@@ -813,6 +813,7 @@ section {
     background: rgba(0, 0, 0, 0.7);
     transition: opacity 500ms;
     visibility: hidden;
+    display: none;
     opacity: 0;
     z-index: 99;
   }
@@ -820,6 +821,7 @@ section {
 .overlay:target {
     visibility: visible;
     opacity: 1;
+    display: flex;
 }
   
 .popup {
@@ -900,6 +902,7 @@ section {
     bottom: 0;
 }
 
+
 .input-number {
     width: 30%;
     padding: 0 12px;
@@ -912,7 +915,6 @@ section {
 .input-number-increment {
     border: 1px solid #ccc;
     height: 40px;
-    user-select: none; 
 }
   
 .input-number-decrement,
@@ -924,7 +926,6 @@ section {
     color: var(--white);
     text-align: center;
     font-weight: bold;
-    cursor: pointer; 
 }
 
 .input-number-decrement:active,
