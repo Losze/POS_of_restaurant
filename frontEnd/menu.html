@@ -110,10 +110,47 @@
     </section>
     <!-- END SECION ABOUT -->
     <!-- FOOD MENU SECTION -->
+
+    
+
     <section class="align-items-center bg-img bg-img-fixed" id="food-menu-section"
         style="background-image: url(assets/banner3.jpg);">
         <div class="container">
             <div class="food-menu">
+
+                <!--Modal Divs-->
+                <div id="modalDiv">
+                    <div id="popup1" class="overlay">
+                        <div class="popup">
+                            <a class="close" href="#food1">&times;</a>
+                            <div class="modal-img" id="food1">
+                                <div class="modal-img-holder bg-img"
+                                    style="background-image: url(assets/food1.jpg);"></div>
+                            </div>
+                            <div class="modal-item-info">
+                                <div id="modal-info">
+                                    <h3>
+                                        Lorem ipsum
+                                    </h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consec tetur, elit. Optio natus placeat et eos,
+                                        digni ssimos voluptatem tempora necessi tatibus doloribus!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="modal-checkout">
+                                <span class="input-number-decrement"><i class='bx bxs-left-arrow'></i></span>
+                                <input class="input-number" type="text" value="1" min="0" max="10">
+                                <span class="input-number-increment"><i class='bx bxs-right-arrow'></i></span>
+                                <span class="modal-price"><h3>120.000 VNĐ</h3></span>
+                                <button class="addtocart-button">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------->
                 <h1>
                     <span class="primary-color">Main Menu</span>
                 </h1>
@@ -154,23 +191,25 @@
                 <div class="food-item-wrap all">
                     <div class="food-item salad-type">
                         <div class="item-wrap bottom-up play-on-scroll">
-                            <div class="item-img">
-                                <div class="img-holder bg-img"
-                                    style="background-image: url(assets/food1.jpg);"></div>
-                            </div>
-                            <div class="item-info">
-                                <div>
-                                    <h3>
-                                        Lorem ipsum
-                                    </h3>
-                                    <span>
-                                        120$
-                                    </span>
+                            <a href="#popup1">
+                                <div class="item-img" id="food1">
+                                    <div class="img-holder bg-img"
+                                        style="background-image: url(assets/food1.jpg);"></div>
                                 </div>
-                                <div class="cart-btn">
-                                    <i class="bx bx-cart-alt"></i>
+                                <div class="item-info">
+                                    <div>
+                                        <h3>
+                                            Lorem ipsum
+                                        </h3>
+                                        <span>
+                                            120$
+                                        </span>
+                                    </div>
+                                    <div class="cart-btn">
+                                        <i class="bx bx-cart-alt"></i>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
@@ -348,7 +387,6 @@
                     <br>
                     <p>Email: example@mail.com</p>
                     <p>Phone: +00 123 456 789</p>
-                    <p>Website: freshfood.com</p>
                 </div>
                 <div class="col-2 col-xs-12">
                     <h1>
