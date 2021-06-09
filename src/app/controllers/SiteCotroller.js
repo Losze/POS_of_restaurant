@@ -30,4 +30,4 @@ class SiteController {
     }
 }
 
-module.exports = new SiteController
+module.exports = new SiteController;

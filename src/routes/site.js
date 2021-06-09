@@ -10,4 +10,4 @@ router.get('/contact', siteController.showcontact)
 router.get('/cart', siteController.showcart)
 router.get('/', siteController.home)
 
-module.exports = router
+module.exports = router;
