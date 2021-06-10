@@ -38,7 +38,7 @@
                     {{#each foods}}
                         <div id="{{this.code}}" class="overlay">
                         <div class="popup">
-                            <a class="close" href="#food1">&times;</a>
+                            <a class="close" href="#modal-stop">&times;</a>
                             <div class="modal-img" id="food1">
                                 <div class="modal-img-holder bg-img"
                                     style="background-image: url({{this.image}});"></div>
@@ -78,7 +78,7 @@
                         <i class='bx bx-search-alt-2' ></i>
                     </button>
                 </div>
-                <div class="food-category" style="padding-top: 2rem;">
+                <div class="food-category" style="padding-top: 2rem;"  id="modal-stop">
                     <div class="zoom play-on-scroll">
                         <button class="active" data-food-type="all">
                             All food
