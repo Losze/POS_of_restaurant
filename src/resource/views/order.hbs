@@ -50,13 +50,12 @@
                                                 {{this.name}}
                                             </h3>
                                             <span>
-                                                {{this.id}}
                                                 {{this.price}} VND
                                             </span>
                                         </div>
                                         <div class="crud-func">
-                                            <a href="/order/{{this.id}}/update" class="update-button">Update</a> <br>
-                                            <form method="POST" action="/order/{{this.id}}/delete?_method=DELETE">
+                                            <a href="/order/{{this._id}}/update" class="update-button">Update</a> <br>
+                                            <form method="POST" action="/order/{{this._id}}/delete?_method=DELETE">
                                                 <input type="submit" class="delete-button"value="Delete">
                                             </form>
                                         </div>

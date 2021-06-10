@@ -636,10 +636,12 @@ section {
   background: rgba(0, 0, 0, 0.7);
   transition: opacity 500ms;
   visibility: hidden;
+  display: none;
   opacity: 0;
   z-index: 99; }
 
 .overlay:target {
+  display: flex;
   visibility: visible;
   opacity: 1; }
 
@@ -823,6 +825,39 @@ section {
   cursor: pointer;
 }
 
+.crud-form{
+  margin-top: 1rem;
+}
+
+.crud-form div{
+  margin-bottom: 1rem;
+}
+.crud-form label{
+
+  display: inline-block;
+  width: 10%;
+  text-align: left;
+}
+
+.crud-form input{
+  padding: 0.5rem 3rem;
+  outline: none;
+  border: none;
+  border: 0.1rem solid var(--primary-color);
+  background-color: white;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: .5s ease-in-out;
+}
+
+#submit-button{
+  margin-top: 1rem;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
 @media screen and (max-width: 600px) {
   .popup {
     width: 80%; }
