@@ -11,6 +11,8 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const cookieParser = require('cookie-parser')
 const flash = require('connect-flash')
+const methodOverride = require('method-override')
+
 app.use(morgan('combined'))
 
 db.connect() // jquery, ajax post form handler
@@ -25,6 +27,7 @@ app.use(express.json()) // js post form handler
 app.use(cookieParser())
 app.use(bodyParser())
 
+app.use(methodOverride('_method'))
 // use sesssion
 
 app.use(session({

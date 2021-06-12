@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-7 h-xs">
-                    <img src="assets/banner2.jpg" alt=""
+                    <img src="img/banner2.jpg" alt=""
                         class="fullwidth left-to-right play-on-scroll">
                 </div>
                 <div class="col-5 col-xs-12 align-items-center">
@@ -29,7 +29,7 @@
     
 
     <section class="align-items-center bg-img bg-img-fixed" id="food-menu-section"
-        style="background-image: url(assets/banner3.jpg);">
+        style="background-image: url(img/banner3.jpg);">
         <div class="container">
             <div class="food-menu">
 
@@ -38,7 +38,7 @@
                     {{#each foods}}
                         <div id="{{this.code}}" class="overlay">
                         <div class="popup">
-                            <a class="close" href="#food1">&times;</a>
+                            <a class="close" href="#modal-stop">&times;</a>
                             <div class="modal-img" id="food1">
                                 <div class="modal-img-holder bg-img"
                                     style="background-image: url({{this.image}});"></div>
@@ -54,9 +54,11 @@
                                 </div>
                             </div>
                             <div class="modal-checkout">
-                                <span class="input-number-decrement"><i class='bx bxs-left-arrow'></i></span>
-                                <input class="input-number" type="text" value="1" min="0" max="10">
-                                <span class="input-number-increment"><i class='bx bxs-right-arrow'></i></span>
+                                <form>
+                                    <input class="input-number-decrement" type="button" onclick="decrementValue('{{this.code}}box')" value="-"/>
+                                    <input class="input-number" type="text" value="1" id="{{this.code}}box">
+                                    <input class="input-number-increment" type="button" onclick="incrementValue('{{this.code}}box')" value='+'/>
+                                </form>
                                 <span class="modal-price"><h3>{{this.price}} VND</h3></span>
                                 <button class="addtocart-button">
                                     Add to Cart
@@ -76,7 +78,7 @@
                         <i class='bx bx-search-alt-2' ></i>
                     </button>
                 </div>
-                <div class="food-category" style="padding-top: 2rem;">
+                <div class="food-category" style="padding-top: 2rem;"  id="modal-stop">
                     <div class="zoom play-on-scroll">
                         <button class="active" data-food-type="all">
                             All food
