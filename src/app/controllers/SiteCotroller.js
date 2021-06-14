@@ -16,9 +16,7 @@ class SiteController {
     showcontact(req, res){
         res.render('contact')
     }
-    showcart(req, res){
-        res.render('cart')
-    }
+    
     showmenu(req,res,next){
         Food.find({})
         .then(foods => {

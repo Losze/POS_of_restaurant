@@ -12,7 +12,7 @@ const passport = require('passport')
 const cookieParser = require('cookie-parser')
 const flash = require('connect-flash')
 const methodOverride = require('method-override')
-
+require("dotenv").config({path:'./.env'});
 app.use(morgan('combined'))
 
 db.connect() // jquery, ajax post form handler

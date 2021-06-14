@@ -126,3 +126,9 @@ function decrementValue(id)
         document.getElementById(String(id)).value = value;
     }
 }
+
+var logoutBtn = document.getElementById('logoutBtn');
+logoutBtn.addEventListener('click',function(e){
+    document.cookie = "token" +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.href = "/login";
+});

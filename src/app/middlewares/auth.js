@@ -1,9 +1,52 @@
+const jwt = require('jsonwebtoken');
+const userModel = require('../models/User');
 class Authenticate{
     isLoggedIn(req, res, next){
-        if (req.isAutheticated())
-            return next()
-        res.redirect('/')
+        try
+        {
+            var token = req.cookies.token;
+            var idUser = jwt.verify(token,process.env.ACCESS_TOKEN_SECRET);
+            userModel.findOne({_id: idUser})
+            .then(data=>{
+                if(data){
+                    next();
+                }
+                else
+                {
+                    res.redirect("/login");
+                }
+            })
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
     }
+
+    checkAdmin(req,res,next)
+    {
+        var role = req.data.role;
+        if(role == "admin"){
+            next();
+        }
+        else
+        {
+            res.redirect("/");
+        }
+    }
+
+    checkClerk(req,res,next)
+    {
+        var role = req.data.role;
+        if(role == "clerk"){
+            next();
+        }
+        else
+        {
+            res.redirect("/");
+        }
+    }
+    
 }
 
 module.exports = new Authenticate

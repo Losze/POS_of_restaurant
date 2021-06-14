@@ -1,5 +1,5 @@
 function ValidatePhone(){
-    var phone = document.getElementById("inputPhone3").value;
+    var phone = document.getElementsByName("inputPhone").value;
     if (phone == null || phone == "") {
         alert("Please enter the phone number.");
         return false;
@@ -18,8 +18,8 @@ function ValidatePhone(){
 }
 
 function ValidatePass(){
-    var password = document.getElementById("inputPassword3").value;
-    var passConf = document.getElementById("inputConfPass3").value;
+    var password = document.getElementsByName("inputPassword").value;
+    var passConf = document.getElementsByName("inputPassword2").value;
     if (password == null || password == "") {
         alert("Please enter the password.");
         return false;
