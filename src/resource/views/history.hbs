@@ -1,0 +1,58 @@
+<section class="align-items-center bg-img bg-img-fixed" id="food-menu-section"
+        style="background-image: url(img/banner3.jpg);">
+        <div class="container">
+            <div class="food-menu">
+
+                <!--Modal Divs-->
+                <div id="modalDiv">
+                    {{#each order}}
+                        <div id="{{this._id}}" class="overlay">
+                        <div class="popup">
+                            <a class="close" href="#modal-stop">&times;</a>
+                            <div class="modal-item-info">
+                                <div id="modal-info">
+                                    
+                                    <h3>
+                                        {{this._id}}
+                                    </h3>
+                                    <p>
+                                        {{this.date}}
+                                        {{this.total}}
+                                        {{#each this.order}}
+                                            <p> {{@key}}  
+                                                {{this.price}} 
+                                                {{this.number}} 
+                                                {{this.total}} 
+                                            </p>
+                                        {{/each}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+
+                <div class="food-item-wrap all">
+                    <!-- FOOD GET -->
+                    {{#each order}}
+                            <div class="item-wrap bottom-up play-on-scroll">
+                                <a href="#{{this._id}}">
+                                    <div class="item-info">
+                                        <div>
+                                            <h3>
+                                                {{this.id}}
+                                            </h3>
+                                            <span>
+                                                {{this.date}}
+                                                {{this.total}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
