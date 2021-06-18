@@ -3,11 +3,14 @@ const userModel = require('../models/User');
 class Authenticate{
     isLoggedIn(req, res, next){
         try
-        {
+        {   
+           
             var token = req.cookies.token;
+            if(typeof token==="undefined") res.redirect("/login");
             var idUser = jwt.verify(token,process.env.ACCESS_TOKEN_SECRET);
             userModel.findOne({_id: idUser})
             .then(data=>{
+                console.log(data);
                 if(data){
                     next();
                 }

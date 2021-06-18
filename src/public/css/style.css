@@ -306,7 +306,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 0 1rem; }
 
 .item-info h3 {
@@ -542,12 +542,6 @@ section {
     overflow-y: scroll; }
   .food-category button {
     width: max-content; }
-  .item-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5rem;
-    padding: 0 1rem; }  
   .user-info p {
     margin: 0;
     padding: 0;
@@ -636,12 +630,10 @@ section {
   background: rgba(0, 0, 0, 0.7);
   transition: opacity 500ms;
   visibility: hidden;
-  display: none;
   opacity: 0;
   z-index: 99; }
 
 .overlay:target {
-  display: flex;
   visibility: visible;
   opacity: 1; }
 
@@ -697,12 +689,12 @@ section {
 
 .modal-item-info h3 {
   position: absolute;
-  top: 50%;
+  top: 48%;
   color: var(--primary-color);
   font-size: 1.8rem; }
 
 .modal-item-info p {
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
   font-size: 1.1rem; }
 
 .modal-item-info > div:first-child {
@@ -769,95 +761,6 @@ section {
   font-size: 1.2rem;
   transition: .5s ease-in-out; }
 
-.addItem {
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-}
-
-.addItem-button {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    padding: 0.5rem 2rem;
-    outline: none;
-    border: none;
-    border: 0.125rem solid var(--primary-color);
-    background-color: white;
-    border-radius: 1rem;
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 1rem;
-    transition: .5s ease-in-out; 
-} 
-
-.crud-func{
-  display:flex;
-  position:absolute;
-  bottom: 0;
-  height:10%;
-  align-items: center;
-  margin-left: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.update-button {
-  padding: 0.5rem 0.5rem;
-  outline: none;
-  border: none;
-  border: 0.125rem solid var(--primary-color);
-  background-color: white;
-  border-radius: 1rem;
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 1rem;
-  transition: .5s ease-in-out; 
-} 
-.delete-button {
-  padding: 0.5rem 0.5rem;
-  outline: none;
-  border: none;
-  border: 0.125rem solid var(--primary-color);
-  background-color: white;
-  border-radius: 1rem;
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 1rem;
-  transition: .5s ease-in-out; 
-  cursor: pointer;
-}
-
-.crud-form{
-  margin-top: 1rem;
-}
-
-.crud-form div{
-  margin-bottom: 1rem;
-}
-.crud-form label{
-
-  display: inline-block;
-  width: 10%;
-  text-align: left;
-}
-
-.crud-form input{
-  padding: 0.5rem 3rem;
-  outline: none;
-  border: none;
-  border: 0.1rem solid var(--primary-color);
-  background-color: white;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  transition: .5s ease-in-out;
-}
-
-#submit-button{
-  margin-top: 1rem;
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  padding: 0.5rem 2rem;
-  font-weight: 600;
-  cursor: pointer;
-}
 @media screen and (max-width: 600px) {
   .popup {
     width: 80%; }
@@ -869,37 +772,60 @@ section {
     height: 100%;
     transition: .5s ease-in-out;
     border-radius: 2rem; }
-    .modal-item-info h3 {
-      position: absolute;
-      top: 48%;
-      color: var(--primary-color);
-      font-size: 1.8rem; }
-    
-    .modal-item-info p {
-      margin-top: 2.5rem;
-      font-size: 1.1rem; }
-    
-    .modal-item-info > div:first-child {
-      text-align: left;
-      display: block; }
-    
-    .modal-checkout {
-      padding: 0 1rem;
-      height: 28%;
-      position: absolute;
-      bottom: 0; }  
   .popup {
     width: 80%; }
   .popup .close {
     top: 5px;
-    right: 15px; } 
-  .crud-func{
-    display:flex;
-    position:absolute;
-    bottom: 0;
-    height:10%;
-    align-items: center;
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-}
+    right: 15px; } }
+
+.changeValue {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 50px; }
+
+.value-button {
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 0;
+  background: #eee;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.value-button:hover {
+  cursor: pointer; }
+
+form #decrease {
+  margin-right: -4px;
+  border-radius: 8px 0 0 8px; }
+
+form #increase {
+  margin-left: -4px;
+  border-radius: 0 8px 8px 0; }
+
+/* form #input-wrap {
+  margin: 0px;
+  padding: 0px;
+} */
+input#number {
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 40px; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
