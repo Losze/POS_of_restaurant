@@ -23,13 +23,14 @@ class RegisterController {
                         const user = new User(formData);
                         user.save()
                             .then(() => {
-                                var newCart = {};
-                                newCart.phone = User.phone;
-                                newCart.cart = {};
-                                const SaveCart = new cartModel(newCart);
+                                var newCart={};
+                                newCart.phone = phone;
+                                
+                                var SaveCart = new cartModel(newCart);
+                                console.log(SaveCart);
                                 SaveCart.save()
                                     .then(() =>
-                                        res.redirect("/")
+                                        res.redirect("/login")
                                     );
                             });
 
