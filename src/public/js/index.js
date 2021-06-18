@@ -216,7 +216,7 @@ function SendDataFromCart() {
     var dateTime = date + ' ' + time;
     var listItem = {};
     let itemCount = document.getElementById("cartTable").childElementCount;
-    for (let i = 0; i < itemCount+1; i++) {
+    for (let i = 0; i < itemCount; i++) {
         let itemInfo={
             image:"",
             price:"",
@@ -247,7 +247,7 @@ function SendDataFromCart() {
         },
         body: JSON.stringify(dataSend),
     }
-
+    console.log(dataSend);
     fetch('/cart',options).then(res=>{
         location.replace("http://localhost:3000/");
     });
