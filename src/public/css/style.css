@@ -761,6 +761,132 @@ section {
   font-size: 1.2rem;
   transition: .5s ease-in-out; }
 
+<<<<<<< HEAD
+=======
+.addItem {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.addItem-button {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 2rem;
+    outline: none;
+    border: none;
+    border: 0.125rem solid var(--primary-color);
+    background-color: white;
+    border-radius: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: .5s ease-in-out; 
+} 
+
+.crud-func{
+  display:flex;
+  position:absolute;
+  bottom: 0;
+  height:10%;
+  align-items: center;
+  margin-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.update-button {
+  padding: 0.5rem 0.5rem;
+  outline: none;
+  border: none;
+  border: 0.125rem solid var(--primary-color);
+  background-color: white;
+  border-radius: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: .5s ease-in-out; 
+} 
+.delete-button {
+  padding: 0.5rem 0.5rem;
+  outline: none;
+  border: none;
+  border: 0.125rem solid var(--primary-color);
+  background-color: white;
+  border-radius: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: .5s ease-in-out; 
+  cursor: pointer;
+}
+
+.crud-form{
+  margin-top: 1rem;
+}
+
+.crud-form div{
+  margin-bottom: 1rem;
+}
+.crud-form label{
+
+  display: inline-block;
+  width: 10%;
+  text-align: left;
+}
+
+.crud-form input{
+  padding: 0.5rem 3rem;
+  outline: none;
+  border: none;
+  border: 0.1rem solid var(--primary-color);
+  background-color: white;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: .5s ease-in-out;
+}
+
+#submit-button{
+  margin-top: 1rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#login-button{
+  text-align: right;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  color: var(--primary-color);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#register-btn{
+    margin-top: 1rem;
+    outline: none;
+    border: none;
+    border: 0.125rem solid var(--primary-color);
+    background-color: white;
+    border-radius: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: right;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#signupAdd{
+  font-size: 800;
+}
+
+>>>>>>> db6ec8b5786bf3018e7402c371326f64b938a684
 @media screen and (max-width: 600px) {
   .popup {
     width: 80%; }
@@ -776,6 +902,7 @@ section {
     width: 80%; }
   .popup .close {
     top: 5px;
+<<<<<<< HEAD
     right: 15px; } }
 
 .changeValue {
@@ -829,3 +956,36 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0; }
+=======
+    right: 15px; } 
+  .crud-func{
+    display:flex;
+    position:absolute;
+    bottom: 0;
+    height:10%;
+    align-items: center;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .food-menu h3{
+    font-size: 2rem;
+  }
+  .crud-form label{
+
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+  }
+  
+  .crud-form input{
+    padding: 0.5rem 2rem;
+    outline: none;
+    border: none;
+    border: 0.1rem solid var(--primary-color);
+    background-color: white;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: .5s ease-in-out;
+  }
+}
+>>>>>>> db6ec8b5786bf3018e7402c371326f64b938a684
