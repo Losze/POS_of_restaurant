@@ -34,12 +34,12 @@ class LoginController {
                         }, process.env.ACCESS_TOKEN_SECRET);
                         console.log(token);
                         res.cookie("token",token);
-                        res.redirect("/");
+                        if (data.role == 'admin')
+                            res.redirect("/order");
+                        else res.redirect("/");
                     }
                     else {
-                        return res.json({
-                            message: "That bai",
-                        });
+                        res.redirect("/login");
                     }
                 })
                 .catch(err => {
