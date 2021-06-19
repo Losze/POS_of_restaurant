@@ -1,0 +1,19 @@
+<section class="align-items-center bg-img bg-img-fixed" id="food-menu-section"
+        style="background-image: url(img/banner3.jpg);">
+    <div class="container">
+        <div class="food-menu">
+            <h1 id"modal-stop">
+                <span class="primary-color">User Management</span>
+            </h1>
+                    {{#each user}}
+                        <div> 
+                            {{this.phone}}
+                        </div>
+                            <form method="POST" action="/user/{{this._id}}/delete?_method=DELETE">
+                                <input type="submit" class="delete-button"value="Delete">
+                            </form>
+                        
+                    {{/each}}
+        </div>
+    </div>
+</section>

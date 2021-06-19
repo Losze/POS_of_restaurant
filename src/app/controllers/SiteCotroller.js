@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const orderModel = require('../models/Order');
 const { multipleMongooseToObject } = require('../../resource/util/mongoose');
 const { updateOne } = require('../models/Food');
+const Usr = require('../models/User')
+
 
 class SiteController {
     home(req, res) {
@@ -42,6 +44,8 @@ class SiteController {
                     })
                 })
     }
+
+    
 
     addToCart(req, res, next) {
         var token = req.cookies.token;
