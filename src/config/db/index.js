@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 async function connect(){
     try{
-        mongoose.connect('mongodb://localhost:27017/mydb', {
+        mongoose.connect('mongodb://localhost:27017/test', {
             useNewUrlParser: true, 
             useUnifiedTopology: true
         });
