@@ -4,7 +4,10 @@ const loginRouter = require('./login')
 const cartRouter = require('./cart');
 const registerRouter = require('./register');
 const accountRouter = require('./account')
+const userRouter = require('./user')
+
 function route(app){
+    app.use('/user', userRouter)
     app.use('/order', orderRouter)
     app.use('/login', loginRouter)    
     app.get('/:slug', siteRouter)

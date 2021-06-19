@@ -57,7 +57,7 @@
         <div class="container">
             <div class="food-menu">
                 <h1>
-                    Check out our <span class="primary-color">Specials</span>
+                    Check out our <span class="primary-color">New Dishes</span>
                 </h1>
                 <p>
                     Our menu is carefully crafted so that every bite and every refreshing sip serve up big flavor, 
@@ -70,100 +70,77 @@
                 <div class="food-category">
                     <div class="zoom play-on-scroll">
                         <button class="active" data-food-type="all">
-                            Specials
+                            New dishes
                         </button>
                     </div>
                 </div>
 
+                                <!--Modal Divs-->
+                <div id="modalDiv">
+                    {{#each foods}}
+                        <div id="{{this.code}}" class="overlay">
+                        <div class="popup">
+                            <a class="close" href="#modal-stop">&times;</a>
+                            <div class="modal-img" id="food1">
+                                <div class="modal-img-holder bg-img"
+                                    style="background-image: url({{this.image}});"></div>
+                            </div>
+                            <div class="modal-item-info">
+                                <div id="modal-info">
+                                    <h3>
+                                        {{this.name}}
+                                    </h3>
+                                    <p>
+                                        {{this.description}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="modal-checkout">
+                                <form>
+                                    <input class="input-number-decrement" type="button" onclick="decrementValue('{{this.code}}box')" value="-"/>
+                                    <input class="input-number" type="text" value="1" id="{{this.code}}box">
+                                    <input class="input-number-increment" type="button" onclick="incrementValue('{{this.code}}box')" value='+'/>
+                                </form>
+                                <span class="modal-price"><h3>{{this.price}} VND</h3></span>
+                                <button class="addtocart-button" onclick="AddToCart('{{this.code}}')">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <!---------------->
+
                 <div class="food-item-wrap all">
-                    <div class="food-item salad-type">
-                        <div class="item-wrap bottom-up play-on-scroll">
-                            <div class="item-img">
-                                <div class="img-holder bg-img"
-                                    style="background-image: url(img/food1.jpg);"></div>
+                    <!-- FOOD GET -->
+                    {{#each foods}}
+                        <div class="food-item {{this.type}}-type">
+                            <div class="item-wrap bottom-up play-on-scroll">
+                                <a href="#{{this.code}}">
+                                    <div class="item-img" id="food1">
+                                        <div class="img-holder bg-img"
+                                            style="background-image: url({{this.image}});">
+                                            </div>
+                                    </div>
+                                    <div class="item-info">
+                                        <div>
+                                            <h3>
+                                                {{this.name}}
+                                            </h3>
+                                            <span>
+                                                {{this.id}}
+                                                {{this.price}} VND
+                                            </span>
+                                        </div>
+                                        <div class="cart-btn">
+                                            <i class="bx bx-cart-alt"></i>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="item-info">
-                                <div>
-                                    <h3>
-                                        Lorem ipsum
-                                    </h3>
-                                    <span>
-                                        120$
-                                    </span>
-                                </div>
-                                <div class="cart-btn">
-                                    <i class="bx bx-cart-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="food-item lorem-type">
-                        <div class="item-wrap bottom-up play-on-scroll">
-                            <div class="item-img">
-                                <div class="img-holder bg-img"
-                                    style="background-image: url('img/salad1.jpg');"></div>
-                            </div>
-                            <div class="item-info">
-                                <div>
-                                    <h3>
-                                        Lorem ipsum
-                                    </h3>
-                                    <span>
-                                        120$
-                                    </span>
-                                </div>
-                                <div class="cart-btn">
-                                    <i class='bx bx-cart-alt'></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="food-item ipsum-type">
-                        <div class="item-wrap bottom-up play-on-scroll">
-                            <div class="item-img">
-                                <div class="img-holder bg-img"
-                                    style="background-image: url('img/salad2.jpg');">
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div>
-                                    <h3>
-                                        Lorem ipsum
-                                    </h3>
-                                    <span>
-                                        120$
-                                    </span>
-                                </div>
-                                <div class="cart-btn">
-                                    <i class='bx bx-cart-alt'></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="food-item lorem-type">
-                        <div class="item-wrap bottom-up play-on-scroll">
-                            <div class="item-img">
-                                <div class="img-holder bg-img"
-                                    style="background-image: url('img/salad3.jpg');"></div>
-                            </div>
-                            <div class="item-info">
-                                <div>
-                                    <h3>
-                                        Lorem ipsum
-                                    </h3>
-                                    <span>
-                                        120$
-                                    </span>
-                                </div>
-                                <div class="cart-btn">
-                                    <i class='bx bx-cart-alt'></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </div>                    
+                    {{/each}}
                 </div>
             </div>
         </div>
