@@ -1,0 +1,155 @@
+    
+       <!-- SECION ABOUT -->
+    <section class="about fullheight align-items-center" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-7 h-xs">
+                    <img src="img/banner2.jpg" alt=""
+                        class="fullwidth left-to-right play-on-scroll">
+                </div>
+                <div class="col-5 col-xs-12 align-items-center">
+                    <div class="about-slogan right-to-left play-on-scroll">
+                        <h3>
+                            <span class="primary-color">We</span> create <span class="primary-color">delicious</span>
+                            memories for <span class="primary-color">you</span>
+                        </h3>
+                        <p>
+                            Most people make the mistake of assuming that cooking a steak is just about throwing a 
+                            piece of choice meat on a hot surface and removing it at the right time. When they discover 
+                            that it doesn’t work, they blame the disaster on the piece of meat. 
+                            Cooking a steak is a lot more than that but that’s the reason why we go out to eat, isn’t it? 
+                            How many times have diners been given a set of totally wrong silverware with their steak? 
+                            Cutleries are important, nothing fancy, just the right kind of knives that will cut through the 
+                            kind of meat served with minimal effort and maximum precision would do just fine.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END SECION ABOUT --> 
+    <!-- FOOD MENU SECTION -->
+
+    
+
+    <section class="align-items-center bg-img bg-img-fixed" id="food-menu-section"
+        style="background-image: url(img/banner3.jpg);">
+        <div class="container">
+            <div class="food-menu">
+
+                <!--Modal Divs-->
+                <div id="modalDiv">
+                    {{#each foods}}
+                        <div id="{{this.code}}" class="overlay">
+                        <div class="popup">
+                            <a class="close" href="#modal-stop">&times;</a>
+                            <div class="modal-img" id="food1">
+                                <div class="modal-img-holder bg-img"
+                                    style="background-image: url({{this.image}});"></div>
+                            </div>
+                            <div class="modal-item-info">
+                                <div id="modal-info">
+                                    <h3>
+                                        {{this.name}}
+                                    </h3>
+                                    <p>
+                                        {{this.description}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="modal-checkout">
+                                <form>
+                                    <input class="input-number-decrement" type="button" onclick="decrementValue('{{this.code}}box')" value="-"/>
+                                    <input class="input-number" type="text" value="1" id="{{this.code}}box">
+                                    <input class="input-number-increment" type="button" onclick="incrementValue('{{this.code}}box')" value='+'/>
+                                </form>
+                                <span class="modal-price"><h3>{{this.price}} VND</h3></span>
+                                <button class="addtocart-button" data-dismiss="modal" onclick="AddToCart('{{this.code}}')">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <!---------------->
+                <h1>
+                    <span class="primary-color">Main Menu</span>
+                </h1>
+                <div class="input-group">
+                    <input type="text" placeholder="Search">
+                    <button>
+                        <i class='bx bx-search-alt-2' ></i>
+                    </button>
+                </div>
+                <div class="food-category" style="padding-top: 2rem;"  id="modal-stop">
+                    <div class="zoom play-on-scroll">
+                        <button class="active" data-food-type="all">
+                            All food
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-6">
+                        <button data-food-type="starter">
+                            Starter
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-2">
+                        <button data-food-type="salad">
+                            Salad
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-8">
+                        <button data-food-type="pasta">
+                            Pasta
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-8">
+                        <button data-food-type="hot">
+                            Hot-dishes
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-8">
+                        <button data-food-type="dessert">
+                            Dessert
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-8">
+                        <button data-food-type="drink">
+                            Drink
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-item-wrap all">
+                    <!-- FOOD GET -->
+                    {{#each foods}}
+                        <div class="food-item {{this.type}}-type">
+                            <div class="item-wrap bottom-up play-on-scroll">
+                                <a href="#{{this.code}}">
+                                    <div class="item-img" id="food1">
+                                        <div class="img-holder bg-img"
+                                            style="background-image: url({{this.image}});">
+                                            </div>
+                                    </div>
+                                    <div class="item-info">
+                                        <div>
+                                            <h3>
+                                                {{this.name}}
+                                            </h3>
+                                            <span>
+                                                {{this.id}}
+                                                {{this.price}} VND
+                                            </span>
+                                        </div>
+                                        <div class="cart-btn">
+                                            <i class="bx bx-cart-alt"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>                    
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
