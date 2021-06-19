@@ -8,13 +8,14 @@ const Usr = require('../models/User')
 
 
 class SiteController {
-    home(req, res) {
-        res.render('home')
-        // else if (req.loggedin == true && req.role == 1) res.render('home1')
-        // Food.find({}, function(err, foods) {
-        //     if (!err) res.json(foods)
-        //     else res.status(400).json({error: 'Error!!!'})
-        // })
+    home(req, res, next) {
+        Food.find({}).sort({_id: -1}).limit(4)
+            .then(foods => {
+                res.render('home', {
+                    foods: multipleMongooseToObject(foods)
+                })
+            })
+            .catch(next)
     }
     showabout(req, res) {
         res.render('about')
