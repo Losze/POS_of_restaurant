@@ -6,12 +6,12 @@
             <table id="cartTable" class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Number</th>
-                        <th scope="col">Total</th>
+                        <th scope="col" class="cart-id">ID</th>
+                        <th scope="col" class="cart-name">Name</th>
+                        <th scope="col" class="cart-image">Image</th>
+                        <th scope="col" class="cart-price">Price</th>
+                        <th scope="col" class="cart-num">Number</th>
+                        <th scope="col" class="cart-total">Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,33 +19,27 @@
                     <tr id="cart-item-{{@index}}">
                         <th scope="row" id="idx">{{sum @index 1}}</th>
                         <td id="name">{{this.name}}</td>
-                        <td><img id="Image" src="" alt=""></td>
+                        <td id="cart-img"><img id="cart-img-holder" src="{{this.image}}" alt=""></td>
                         <td id="price">{{this.price}}</td>
                         <td id="number">
                             <form class="changeValue">
                                 <div class="value-button" id="decrease" onclick="decreaseValue({{@index}})"
-                                    value="Decrease Value">-</div>
+                                    value="Decrease Value"><p>-</p></div>
                                 <input type="number" id="numberOfItem" value="{{this.number}}">
                                 <div class="value-button" id="increase" onclick="increaseValue({{@index}})"
-                                    value="Increase Value">+</div>
+                                    value="Increase Value"><p>+</p></div>
                             </form>
                         </td>
                         <td id="total"> {{this.totalPrice}} </td>
                     </tr>
                     {{/each}}
-
                 </tbody>
             </table>
             
-            <p>Total</p>
+            <h3>Total Price</h3>
             <p id="totalPrice">{{SumTotal}}</p>
             <button id="payButton" type="button" onclick="SendDataFromCart()" class="btn btn-primary" >Thanh Toán</button>
             </form>
-            
-
-            
         </div>
-        
     </div>
-
 </section>

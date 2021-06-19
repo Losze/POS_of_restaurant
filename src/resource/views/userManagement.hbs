@@ -2,18 +2,19 @@
         style="background-image: url(img/banner3.jpg);">
     <div class="container">
         <div class="food-menu">
-            <h1 id"modal-stop">
+            <h3 id"modal-stop">
                 <span class="primary-color">User Management</span>
-            </h1>
-                    {{#each user}}
-                        <div> 
-                            {{this.phone}}
-                        </div>
+            </h3>
+                {{#each user}}
+                    <div class="user-mgmt-wrap bottom-up play-on-scroll">
+                        <div class="user-mgmt-info">
                             <form method="POST" action="/user/{{this._id}}/delete?_method=DELETE">
-                                <input type="submit" class="delete-button"value="Delete">
+                                <label for="phone">Phone Number:   {{this.phone}}</label>
+                                <input type="submit" name="phone" class="delete-button"value="Delete">
                             </form>
-                        
-                    {{/each}}
+                        </div>
+                    </div>
+                {{/each}}
         </div>
     </div>
 </section>
