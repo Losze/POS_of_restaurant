@@ -64,7 +64,7 @@
                                     <input class="input-number-increment" type="button" onclick="incrementValue('{{this.code}}box')" value='+'/>
                                 </form>
                                 <span class="modal-price"><h3>{{this.price}} VND</h3></span>
-                                <button class="addtocart-button" onclick="AddToCart('{{this.code}}')">
+                                <button class="addtocart-button" data-dismiss="modal" onclick="AddToCart('{{this.code}}')">
                                     Add to Cart
                                 </button>
                             </div>

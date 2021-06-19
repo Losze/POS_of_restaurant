@@ -66,6 +66,7 @@ class CartController {
         orderData.date = order.date;
         orderData.order = order.order;
         orderData.total = order.total;
+        orderData.image = order.image;
         const SaveData = new orderModel(orderData);
         SaveData.save();
         cartModel.deleteOne({ phone: User.phone })

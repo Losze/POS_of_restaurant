@@ -216,7 +216,6 @@ function SendDataFromCart() {
     var dateTime = date + ' ' + time;
     var listItem = {};
     let itemCount = document.getElementById("cartTableBody").childElementCount;
-    console.log(itemCount)
     for (let i = 0; i < itemCount; i++) {
         let itemInfo={
             image:"",
@@ -224,7 +223,6 @@ function SendDataFromCart() {
             number:"",
             total:"",
         }
-        console.log(document.getElementById("cartTableBody").children[i])
         var Item = document.getElementById("cartTableBody").children[i].children;
         itemInfo.image = Item[2].firstChild.getAttribute("src");
         itemInfo.price = Item.price.innerHTML;
