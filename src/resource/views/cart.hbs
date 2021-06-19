@@ -14,7 +14,7 @@
                         <th scope="col" class="cart-total">Total</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="cartTableBody">
                     {{#each listItem}}
                     <tr id="cart-item-{{@index}}">
                         <th scope="row" id="idx">{{sum @index 1}}</th>

@@ -215,7 +215,8 @@ function SendDataFromCart() {
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var dateTime = date + ' ' + time;
     var listItem = {};
-    let itemCount = document.getElementById("cartTable").childElementCount;
+    let itemCount = document.getElementById("cartTableBody").childElementCount;
+    console.log(itemCount)
     for (let i = 0; i < itemCount; i++) {
         let itemInfo={
             image:"",
@@ -223,7 +224,8 @@ function SendDataFromCart() {
             number:"",
             total:"",
         }
-        var Item = document.getElementById("cartTable").children[1].children[i].children;
+        console.log(document.getElementById("cartTableBody").children[i])
+        var Item = document.getElementById("cartTableBody").children[i].children;
         itemInfo.image = Item[2].firstChild.getAttribute("src");
         itemInfo.price = Item.price.innerHTML;
         itemInfo.total = Item.total.innerHTML;
