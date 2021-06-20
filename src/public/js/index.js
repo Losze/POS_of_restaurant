@@ -209,48 +209,50 @@ function decreaseValue(index) {
 }
 
 function SendDataFromCart() {
-    var dataSend ={};
-    var today = new Date();
-    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date + ' ' + time;
-    var listItem = {};
-    let itemCount = document.getElementById("cartTableBody").childElementCount;
-    for (let i = 0; i < itemCount; i++) {
-        let itemInfo={
-            image:"",
-            price:"",
-            number:"",
-            total:"",
+    if (document.getElementById("totalPrice").innerHTML > 0){
+        var dataSend ={};
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        var listItem = {};
+        let itemCount = document.getElementById("cartTableBody").childElementCount;
+        for (let i = 0; i < itemCount; i++) {
+            let itemInfo={
+                image:"",
+                price:"",
+                number:"",
+                total:"",
+            }
+            var Item = document.getElementById("cartTableBody").children[i].children;
+            itemInfo.image = Item[2].firstChild.getAttribute("src");
+            itemInfo.price = Item.price.innerHTML;
+            itemInfo.total = Item.total.innerHTML;
+            var cartItem = document.getElementById('cart-item-' + String(i));
+            if (typeof cartItem.children.number.children.numberOfItem !== 'undefined') {
+                itemInfo.number = cartItem.children.number.children.numberOfItem.value;
+            }
+            else {
+                itemInfo.number = cartItem.children.number.children[0].children.numberOfItem.value;
+            }
+            listItem[Item.name.innerHTML] = itemInfo;
         }
-        var Item = document.getElementById("cartTableBody").children[i].children;
-        itemInfo.image = Item[2].firstChild.getAttribute("src");
-        itemInfo.price = Item.price.innerHTML;
-        itemInfo.total = Item.total.innerHTML;
-        var cartItem = document.getElementById('cart-item-' + String(i));
-        if (typeof cartItem.children.number.children.numberOfItem !== 'undefined') {
-            itemInfo.number = cartItem.children.number.children.numberOfItem.value;
+        dataSend["date"] = dateTime;
+        dataSend["order"] = listItem;
+        dataSend["total"] = document.getElementById("totalPrice").innerHTML;
+        console.log(dataSend);
+        const options = {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(dataSend),
         }
-        else {
-            itemInfo.number = cartItem.children.number.children[0].children.numberOfItem.value;
-        }
-        listItem[Item.name.innerHTML] = itemInfo;
+        console.log(dataSend);
+        fetch('/cart',options).then(res=>{
+            location.replace("http://localhost:3000/");
+        });
     }
-    dataSend["date"] = dateTime;
-    dataSend["order"] = listItem;
-    dataSend["total"] = document.getElementById("totalPrice").innerHTML;
-    console.log(dataSend);
-    const options = {
-        method:'POST',
-        headers:{
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify(dataSend),
-    }
-    console.log(dataSend);
-    fetch('/cart',options).then(res=>{
-        location.replace("http://localhost:3000/");
-    });
     
 
 }

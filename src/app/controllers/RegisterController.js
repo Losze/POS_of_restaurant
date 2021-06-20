@@ -13,6 +13,7 @@ class RegisterController {
             .then(data => {
                 if (data) {
                     console.log("The phone number exists");
+                    res.redirect("/register")
                 }
                 else {
                     if (inputPassword == inputPassword2) {

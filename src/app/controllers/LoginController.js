@@ -35,7 +35,7 @@ class LoginController {
                         console.log(token);
                         res.cookie("token",token);
                         if (data.role == 'admin')
-                            res.redirect("/order");
+                            res.redirect("/account");
                         else res.redirect("/");
                     }
                     else {
@@ -49,7 +49,7 @@ class LoginController {
 
         }
         else {
-            res.send("Please enter Username and Password")
+            res.redirect("/login");
         }
     }
 }
