@@ -278,7 +278,6 @@ function AddToCart(code){
     fetch('/menu',options).then(res=>{
         location.replace("http://localhost:3000/");
     });
-    
 }
 
 
